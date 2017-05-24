@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2017/5/10.
+ * Created by Administrator on 2017/5/24.
  */
 module.exports = {
     //邮件配置

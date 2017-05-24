@@ -2,8 +2,8 @@
  * 创建服务端后台主要文件
  * */
 
-/**引入编写好的api*/
-const api = require('./api/interface');
+/**引入路由*/
+const router = require('./routes/index');
 
 /**引入文件模块*/
 const fs = require('fs');
@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(api);
+app.use(router);
 
 /**监听8088端口*/
 app.listen(8088);
