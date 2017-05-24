@@ -5,5 +5,5 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-UsedStreet.iml
+UsedStreetWeb.iml
 node-elm-master/
