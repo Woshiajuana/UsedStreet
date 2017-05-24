@@ -1,12 +1,12 @@
 # UsedStreet
 
-技术栈：vue2 + vuex + vue-router + axios + Element + node.js + express + mongodb
+技术栈：vue2 + vuex + vue-router + vux + axios + Element + node.js + express + mongodb
 
 ##版本：
 v1.0.0
 
 ##简介：
-校园二手街前端基于vue2，后端node.js，数据库mongodb搭建而成，前后端分离。
+校园二手街前端基于vue2，后端node.js，数据库mongodb搭建而成，前后端分离。<br>
 预计要实现的功能有:
 >用户注册、登录、修改密码、忘记密码、填写资料、浏览商品、发布商品、收藏商品等
 
@@ -16,7 +16,7 @@ v1.0.0
 >wap前端占用端口：3000<br>
 >后台管理系统占用端口：8090<br>
 >需要安装mongodb数据库，使用的数据库名是：UsedStreet (可在代码中更改)且后台管理系统管理员帐号需要自己预先创建好
-给出示例创建代码：(预先安装好并且可以成功使用mongodb)
+给出示例创建代码：(预先安装好并且可以成功使用mongodb)<br>
 #####打开cmd，一步一步输入如下命令：
 
 ```
