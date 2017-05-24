@@ -1,0 +1,249 @@
+
+%fs0{
+    font-size: 0;
+}
+
+%ios{
+    -webkit-overflow-scrolling: touch;
+}
+
+%oya{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+%w100{
+    width: 100%;
+}
+
+%h100{
+    height: 100%;
+}
+
+%t50{
+    top: 50%;
+}
+
+%l50{
+    left: 50%;
+}
+
+%l0{
+    left: 0;
+}
+
+%r0{
+    right: 0;
+}
+
+%b0{
+    bottom: 0;
+}
+
+%t0{
+    top: 0;
+}
+
+%bsb{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+%df{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+%df0{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
+}
+
+%df1{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+%df2{
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+
+%df3{
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+}
+
+%pr{
+	position:relative;
+}
+
+%pa{
+	position:absolute;
+}
+
+%pf{
+  position:fixed;
+}
+
+%dib{
+	display:inline-block;
+}
+
+%db{
+	display:block;
+}
+
+%dn{
+	display:none;
+}
+
+%of{
+	overflow:hidden;
+	zoom:1;
+}
+
+%vam{
+	vertical-align:middle;
+}
+
+%bn{
+	border:none 0;
+}
+
+%fnone{
+	line-height:800px;
+	@extend %oh;
+}
+
+%tint{
+	text-indent:-999em;
+	@extend %oh;
+}
+
+%clearfix{
+	zoom:1;
+}
+
+%clearfix:after{
+	content:'\20';
+	display:block;
+	height:0;
+	clear:both;
+}
+
+%fl{
+	float:left;
+}
+
+%fr{
+	float:right;
+}
+
+%ma{
+	margin:0 auto;
+}
+
+%oh{
+	overflow:hidden;
+}
+
+%tac{
+	text-align:center;
+}
+
+%tar{
+	text-align:right;
+}
+
+%fwb{
+	font-weight:bold;
+}
+
+%fwn{
+	font-weight:normal;
+}
+
+%cp{
+	cursor:pointer;
+}
+
+%cd{
+    cursor:default;
+}
+
+%tdn{
+  text-decoration:none
+}
+
+%tdu{
+  text-decoration:underline;
+}
+
+%f12{
+	font-size:12px;
+}
+
+%f14{
+	font-size:14px;
+}
+
+%f16{
+	font-size:16px;
+}
+
+%f18{
+	font-size:18px;
+}
+
+%f20{
+	font-size:20px;
+}
+
+%f22{
+	font-size:22px;
+}
+
+%cfff{
+	color:#fff;
+}
+
+%c0{
+    color:#000;
+}
+
+%c3{
+	color:#333;
+}
+
+%cc{
+	color:#ccc;
+}
+
+%c6{
+	color:#666;
+}
+
+%c9{
+	color:#999;
+}
+
+%bgwhite{
+	background:#fff;
+}
+
+@mixin rounded($radius){
+    -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
