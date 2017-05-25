@@ -1,4 +1,13 @@
 
+//主体宽度
+%wm{
+    @extend %ma;
+    width: 960px;
+}
+%minwm{
+    min-width: 960px;
+}
+
 //主背景色
 %bgmc{
     background-color: #fff;
@@ -18,6 +27,7 @@
 %cac{
     color:#191400;
 }
+
 
 %fs0{
     font-size: 0;

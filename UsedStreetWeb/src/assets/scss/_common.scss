@@ -1,2 +1,7 @@
 @import "./reset";
 @import "./define";
+/**定义通用样式*/
+body{
+    @extend %bgmc;
+    @extend %minwm;
+}
