@@ -10,10 +10,12 @@
         data () {
             return {
                 carousel_arr: [
-                    { url: 'http://www.owulia.com', img_url: 'http://img.mukewang.com/5784503f00017aac06000338-240-135.jpg'},
-                    { url: 'http://www.owulia.com', img_url: 'http://img.mukewang.com/57fb48700001289806000338-240-135.jpg'},
-                    { url: 'http://www.owulia.com', img_url: 'http://img.mukewang.com/5704ae0000015fe706000338-240-135.jpg'},
-                    { url: 'http://www.owulia.com', img_url: 'http://img.mukewang.com/56f22f160001bac306000338-240-135.jpg'}
+                    { url: 'http://www.owulia.com', img_url: 'http://www.owulia.com/static/temp/1.jpg'},
+                    { url: 'http://www.owulia.com', img_url: 'http://www.owulia.com/static/temp/2.jpg'},
+                    { url: 'http://www.owulia.com', img_url: 'http://www.owulia.com/static/temp/3.jpg'},
+                    { url: 'http://www.owulia.com', img_url: 'http://www.owulia.com/static/temp/4.jpg'},
+                    { url: 'http://www.owulia.com', img_url: 'http://www.owulia.com/static/temp/5.jpg'},
+                    { url: 'http://www.owulia.com', img_url: 'http://www.owulia.com/static/temp/6.jpg'},
                 ],
                 active_index: 0
             }

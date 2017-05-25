@@ -1,22 +1,21 @@
 <template>
     <div class="carousel-wrap">
-        <div class="carousel-inner">
-            <transition-group  tag="p" name="fade">
-                <div class="carousel-item"
-                     v-for="(item,index) in carousel_arr"
-                     v-bind:key="item"
-                     :class="{'active': index == carousel_index}">
-                    <a class="carousel-item-main"
-                       :style="{ backgroundImage: 'url(' + item.img_url + ')' }"
-                       :href="item.url"></a>
-                    <a class="carousel-item-minor-top"
-                       :style="{ backgroundImage: carousel_arr[index + 1] ? 'url(' + carousel_arr[index + 1].img_url + ')' : 'url(' + carousel_arr[0].img_url + ')' }"
-                       :href="carousel_arr[index + 1] ? carousel_arr[index + 1].url : carousel_arr[0].url"></a>
-                    <a class="carousel-item-minor-bottom"
-                       :style="{ backgroundImage: carousel_arr[index + 2] ? 'url(' + carousel_arr[index + 2].img_url + ')' : carousel_arr[index + 1] ? 'url(' + carousel_arr[0].img_url + ')' : 'url(' + carousel_arr[1].img_url + ')' }"
-                       :href="carousel_arr[index + 2] ? carousel_arr[index + 2].url : carousel_arr[0].url"></a>
-                </div>
-            </transition-group>
+        <div class="carousel-inner-box">
+            <a class="carousel-inner-item"
+               v-for="(item,index) in carousel_arr"
+               :class="{'active': index == carousel_index}"
+               :style="{ backgroundImage: 'url(' + item.img_url + ')' }"
+               :href="item.url"></a>
+        </div>
+        <div class="container-minor-box">
+            <div class="container-minor"
+                 :class="{'active': is_animate}"
+                 :style="{top: top + 'px'}">
+                <a class="carousel-minor-item"
+                   v-for="(item,index) in carouselArr"
+                   :style="{ backgroundImage: 'url(' + item.img_url + ')' }"
+                   :href="item.url"></a>
+            </div>
         </div>
         <div class="carousel-trigger">
            <i class="carousel-trigger-item"
@@ -42,26 +41,53 @@
         props: ['carousel_arr','active_index'],
         data () {
             return {
-                is_animate: false,
-                is_left: false,
-                is_right: false,
+                top: -480,
+                is_animate: true,
                 carousel_length: (this.carousel_arr && this.carousel_arr.length) || 0,
                 carousel_index: this.active_index || 0
             }
         },
+        computed: {
+            carouselArr () {
+                if(!this.carousel_arr) return [];
+                var arr = [...this.carousel_arr];
+                arr.push(this.carousel_arr[0]);
+                arr.push(this.carousel_arr[1]);
+                arr.unshift(this.carousel_arr[this.carousel_arr.length-1]);
+                arr.unshift(this.carousel_arr[this.carousel_arr.length-2]);
+                return arr;
+            }
+        },
         methods: {
             prevFun () {
-                if( this.carousel_index <= 0 ) this.carousel_index = this.carousel_length;
                 this.carousel_index--;
+                if ( this.carousel_index < 0) {
+                    this.carousel_index = this.carousel_length -1;
+                }
+                this.is_animate = true;
+                this.top = this.top + 160;
+                if ( this.carousel_index == this.carousel_length - 3 ) {
+                    setTimeout( () => {
+                        this.is_animate = false;
+                        this.top = -480 - (this.carousel_length - 3) * 160;
+                    },500)
+                }
             },
             nextFun () {
-                this.is_left = true;
-                this.is_animate = true;
-                setTimeout(() => {
-                    this.is_animate = false;
-                },500)
-                if( this.carousel_index >= ( this.carousel_length - 1 ) ) this.carousel_index = -1;
                 this.carousel_index++;
+                if ( this.carousel_index >= this.carousel_length ) {
+                    this.carousel_index = 0
+                }
+                this.is_animate = true;
+                this.top = this.top - 160;
+                if( this.carousel_index == this.carousel_length - 1 ){
+                    setTimeout( () => {
+                        this.is_animate = false;
+                        this.top = -320;
+                    },500)
+                }
+
+
             },
             triggerFun ( index ) {
                 this.carousel_index = index;
@@ -71,22 +97,10 @@
 </script>
 <style lang="scss">
     @import "../assets/scss/define";
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s
-    }
-    .fade-leave-active{
-        .carousel-item-minor-top,
-        .carousel-item-minor-bottom{
-            @include tft((0,-100%,0));
-        }
-    }
-
-    .fade-enter, .fade-leave-active {
-        opacity: 0
-    }
     .carousel-wrap{
         @extend %wm;
         @extend %oh;
+        @extend %pr;
         height: 320px;
         &:hover{
             .carousel-prev{
@@ -99,79 +113,52 @@
             }
         }
     }
-    .carousel-wrap,
-    .carousel-inner{
-        @extend %pr;
-        @extend %h100;
-    }
-    .carousel-item{
+    .carousel-inner-box{
         @extend %pa;
-        @extend %db;
+        @extend %h100;
+        @extend %t0;
+        @extend %l0;
+        width: 67%;
+    }
+    .carousel-inner-item{
+        @extend %pa;
         @extend %w100;
         @extend %l0;
         @extend %t0;
         @extend %h100;
+        @extend %o0;
+        @include tst(opacity,.5s);
         z-index: 0;
         &.active{
-            @extend %db;
+            @extend %o1;
             z-index: 1;
-            .carousel-item-main{
-                @extend %o1;
-            }
-        }
-        &.left{
-            .carousel-item-minor-top,
-            .carousel-item-minor-bottom{
-                @include tft((0,100%,0));
-            }
-        }
-        &.right{
-            .carousel-item-main{
-
-            }
-            .carousel-item-minor-top,
-            .carousel-item-minor-bottom{
-                @include tft((0,-100%,0));
-            }
-        }
-        &.next{
-            .carousel-item-minor-top,
-            .carousel-item-minor-bottom{
-                @include tft((0,100%,0));
-            }
         }
     }
-
-    .carousel-item-main,
-    .carousel-item-minor-top,
-    .carousel-item-minor-bottom{
-        @extend %pa;
+    .carousel-minor-item,
+    .carousel-inner-item{
         @extend %bsc;
-        @include tst(all,.5s);
         background-image: url("../assets/img/1.jpg");
         background-position: center;
     }
-    .carousel-item-main{
-        @extend %h100;
-        @extend %t0;
-        @extend %l0;
-        @extend %o0;
-        width: 67%;
-        background-color: #03133d;
-    }
-    .carousel-item-minor-top{
-        @extend %r0;
-        @extend %t0;
-        height: 50%;
-        width: 33%;
-        background-color: #65ce85;
-    }
-    .carousel-item-minor-bottom{
+    .container-minor-box{
+        @extend %pa;
         @extend %r0;
         @extend %b0;
-        height: 50%;
+        @extend %h100;
         width: 33%;
-        background-color: #ff2800;
+    }
+    .container-minor{
+        @extend %pa;
+        @extend %t0;
+        @extend %l0;
+        @extend %w100;
+        &.active{
+            @include tst(top,.5s);
+        }
+    }
+    .carousel-minor-item{
+        @extend %db;
+        height: 160px;
     }
     .carousel-trigger{
         @extend %pa;
@@ -186,6 +173,7 @@
     .carousel-trigger-item{
         @extend %cp;
         @extend %dib;
+        @include tst(background-color,.5s);
         width: 30px;
         height: 5px;
         background-color: #fff;
@@ -194,7 +182,6 @@
             @extend %bgac;
         }
     }
-
     .carousel-prev,
     .carousel-next{
         @extend %pa;
