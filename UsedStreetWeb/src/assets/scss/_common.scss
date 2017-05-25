@@ -1,6 +1,9 @@
 @import "./reset";
 @import "./define";
 /**定义通用样式*/
+html{
+    overflow-y: scroll;
+}
 body{
     @extend %bgmc;
     @extend %minwm;

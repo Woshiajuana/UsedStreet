@@ -29,5 +29,6 @@
     @import "../../assets/scss/define";
     .views-wrap{
         @extend %w100;
+        padding-top: 170px;
     }
 </style>
