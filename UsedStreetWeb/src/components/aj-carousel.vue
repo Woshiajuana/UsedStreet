@@ -47,7 +47,7 @@
                 height: this.carousel_height || 320,
                 dir: Math.floor((this.carousel_height || 320) / 2),
                 init_top: this.carousel_height ? Math.floor( this.carousel_height / 2 * -3 ) : -480 ,
-                top: this.carousel_height ? Math.floor( this.carousel_height / 2 * -3 ) : -480,
+                top: this.carousel_arr.length > 2 ? (this.carousel_height ? Math.floor( this.carousel_height / 2 * -3 ) : -480) : 0,
                 is_animate: true,
                 carousel_length: ( this.carousel_arr && this.carousel_arr.length ) || 0,
                 carousel_index: this.active_index || 0
@@ -58,14 +58,15 @@
                 if( !this.carousel_arr ) return [];
                 var arr = [ ...this.carousel_arr ];
                 arr.push( this.carousel_arr[0] );
-                arr.push( this.carousel_arr[1] );
+                this.carousel_arr[1] && arr.push( this.carousel_arr[1] );
                 arr.unshift( this.carousel_arr[ this.carousel_arr.length - 1 ] );
-                arr.unshift( this.carousel_arr[ this.carousel_arr.length - 2 ] );
+                this.carousel_arr[ this.carousel_arr.length - 2 ] && arr.unshift( this.carousel_arr[ this.carousel_arr.length - 2 ] );
                 return arr;
             }
         },
         methods: {
             prevFun () {
+                if(this.carousel_length < 3) return;
                 if(this.is_type) return;
                 this.is_type = true;
                 this.carousel_index--;
@@ -85,6 +86,7 @@
                 },500)
             },
             nextFun () {
+                if(this.carousel_length < 3) return;
                 if(this.is_type) return;
                 this.is_type = true;
                 this.carousel_index++;
@@ -104,11 +106,24 @@
                 },500)
             },
             triggerFun ( index ) {
+                if(this.carousel_length < 3) return;
                 if(this.is_type) return;
                 this.is_type = true;
                 this.is_animate = true;
                 this.carousel_index = index;
                 this.top = this.init_top - index * this.dir;
+                if( this.carousel_index == this.carousel_length - 1 ){
+                    setTimeout( () => {
+                        this.is_animate = false;
+                        this.top = -this.height;
+                    },500)
+                }
+                if ( this.carousel_index == this.carousel_length - 3 ) {
+                    setTimeout( () => {
+                        this.is_animate = false;
+                        this.top = this.init_top - (this.carousel_length - 3) * this.dir;
+                    },500)
+                }
                 setTimeout( () => {
                     this.is_type = false;
                 },500)
