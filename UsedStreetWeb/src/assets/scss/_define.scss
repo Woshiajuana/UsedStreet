@@ -28,6 +28,19 @@
     color:#191400;
 }
 
+%o0{
+    opacity: 0;
+}
+
+%o1{
+    opacity: 1;
+}
+
+%bsc{
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+}
 
 %fs0{
     font-size: 0;
@@ -272,8 +285,31 @@
 	background:#fff;
 }
 
-@mixin rounded($radius){
+@mixin br($radius){
     -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+
+@mixin tfr($rotate){
+    -webkit-transform: rotate($rotate);
+       -moz-transform: rotate($rotate);
+        -ms-transform: rotate($rotate);
+         -o-transform: rotate($rotate);
+            transform: rotate($rotate);
+}
+
+@mixin tft($translate3d){
+    -webkit-transform: $translate3d;
+       -moz-transform: $translate3d;
+        -ms-transform: $translate3d;
+         -o-transform: $translate3d;
+            transform: $translate3d;
+}
+
+@mixin tst($sty,$time){
+    -webkit-transition: $sty $time;
+       -moz-transition: $sty $time;
+         -o-transition: $sty $time;
+            transition: $sty $time;
 }
