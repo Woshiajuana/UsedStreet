@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-wrap">
+    <div class="carousel-wrap" :style="{'height':height ? height + 'px': '320px'}">
         <div class="carousel-inner-box">
             <a class="carousel-inner-item"
                v-for="(item,index) in carousel_arr"
@@ -10,18 +10,20 @@
         <div class="container-minor-box">
             <div class="container-minor"
                  :class="{'active': is_animate}"
-                 :style="{top: top + 'px'}">
+                 :style="{ transform: 'translate3d(0,'+ top +'px,0)'}">
                 <a class="carousel-minor-item"
                    v-for="(item,index) in carouselArr"
-                   :style="{ backgroundImage: 'url(' + item.img_url + ')' }"
+                   :style="{ backgroundImage: 'url(' + item.img_url + ')','height':height ? (height / 2) + 'px': '160px' }"
                    :href="item.url"></a>
             </div>
         </div>
         <div class="carousel-trigger">
-           <i class="carousel-trigger-item"
-              v-for="(item,index) in carousel_arr"
-              @click="triggerFun(index)"
-              :class="{'active': index == carousel_index}"></i>
+           <span class="carousel-trigger-item"
+                 v-for="(item,index) in carousel_arr"
+                 @click="triggerFun(index)"
+                 :class="{'active': index == carousel_index}">
+               <i></i>
+           </span>
         </div>
         <i class="carousel-prev" @click.stop="prevFun">
             <svg class="carousel-arrow-icon">
@@ -38,59 +40,78 @@
 <script>
     export default {
         name: 'aj-carousel',
-        props: ['carousel_arr','active_index'],
+        props: ['carousel_arr','active_index','carousel_height'],
         data () {
             return {
-                top: -480,
+                is_type: false,
+                height: this.carousel_height || 320,
+                dir: Math.floor((this.carousel_height || 320) / 2),
+                init_top: this.carousel_height ? Math.floor( this.carousel_height / 2 * -3 ) : -480 ,
+                top: this.carousel_height ? Math.floor( this.carousel_height / 2 * -3 ) : -480,
                 is_animate: true,
-                carousel_length: (this.carousel_arr && this.carousel_arr.length) || 0,
+                carousel_length: ( this.carousel_arr && this.carousel_arr.length ) || 0,
                 carousel_index: this.active_index || 0
             }
         },
         computed: {
             carouselArr () {
-                if(!this.carousel_arr) return [];
-                var arr = [...this.carousel_arr];
-                arr.push(this.carousel_arr[0]);
-                arr.push(this.carousel_arr[1]);
-                arr.unshift(this.carousel_arr[this.carousel_arr.length-1]);
-                arr.unshift(this.carousel_arr[this.carousel_arr.length-2]);
+                if( !this.carousel_arr ) return [];
+                var arr = [ ...this.carousel_arr ];
+                arr.push( this.carousel_arr[0] );
+                arr.push( this.carousel_arr[1] );
+                arr.unshift( this.carousel_arr[ this.carousel_arr.length - 1 ] );
+                arr.unshift( this.carousel_arr[ this.carousel_arr.length - 2 ] );
                 return arr;
             }
         },
         methods: {
             prevFun () {
+                if(this.is_type) return;
+                this.is_type = true;
                 this.carousel_index--;
                 if ( this.carousel_index < 0) {
-                    this.carousel_index = this.carousel_length -1;
+                    this.carousel_index = this.carousel_length - 1;
                 }
                 this.is_animate = true;
-                this.top = this.top + 160;
+                this.top = this.top + this.dir;
                 if ( this.carousel_index == this.carousel_length - 3 ) {
                     setTimeout( () => {
                         this.is_animate = false;
-                        this.top = -480 - (this.carousel_length - 3) * 160;
+                        this.top = this.init_top - (this.carousel_length - 3) * this.dir;
                     },500)
                 }
+                setTimeout( () => {
+                    this.is_type = false;
+                },500)
             },
             nextFun () {
+                if(this.is_type) return;
+                this.is_type = true;
                 this.carousel_index++;
                 if ( this.carousel_index >= this.carousel_length ) {
                     this.carousel_index = 0
                 }
                 this.is_animate = true;
-                this.top = this.top - 160;
+                this.top = this.top - this.dir;
                 if( this.carousel_index == this.carousel_length - 1 ){
                     setTimeout( () => {
                         this.is_animate = false;
-                        this.top = -320;
+                        this.top = -this.height;
                     },500)
                 }
-
-
+                setTimeout( () => {
+                    this.is_type = false;
+                },500)
             },
             triggerFun ( index ) {
+                if(this.is_type) return;
+                this.is_type = true;
+                this.is_animate = true;
                 this.carousel_index = index;
+                this.top = this.init_top - index * this.dir;
+                setTimeout( () => {
+                    this.is_type = false;
+                },500)
             }
         }
     }
@@ -101,7 +122,6 @@
         @extend %wm;
         @extend %oh;
         @extend %pr;
-        height: 320px;
         &:hover{
             .carousel-prev{
                 @extend %l0;
@@ -126,6 +146,7 @@
         @extend %l0;
         @extend %t0;
         @extend %h100;
+        @extend %tfz;
         @extend %o0;
         @include tst(opacity,.5s);
         z-index: 0;
@@ -137,7 +158,6 @@
     .carousel-minor-item,
     .carousel-inner-item{
         @extend %bsc;
-        background-image: url("../assets/img/1.jpg");
         background-position: center;
     }
     .container-minor-box{
@@ -153,12 +173,15 @@
         @extend %l0;
         @extend %w100;
         &.active{
-            @include tst(top,.5s);
+            @include tst(transform,.5s);
+            transition-timing-function: ease-in;
+            -webkit-transition-timing-function: ease-in;
+            -moz-transition-timing-function: ease-in;
+            -o-transition-timing-function: ease-in;
         }
     }
     .carousel-minor-item{
         @extend %db;
-        height: 160px;
     }
     .carousel-trigger{
         @extend %pa;
@@ -168,18 +191,23 @@
         @extend %fs0;
         @extend %tac;
         bottom: 20px;
-        z-index: 2;
+        z-index: 1;
     }
     .carousel-trigger-item{
         @extend %cp;
-        @extend %dib;
-        @include tst(background-color,.5s);
-        width: 30px;
-        height: 5px;
-        background-color: #fff;
-        margin: 0 5px;
+        padding: 10px 0 20px 0;
         &.active{
-            @extend %bgac;
+            i{
+                @extend %bgac;
+            }
+        }
+        i{
+            @extend %dib;
+            @include tst(background-color,.5s);
+            width: 30px;
+            height: 5px;
+            background-color: #fff;
+            margin: 0 5px;
         }
     }
     .carousel-prev,
@@ -191,7 +219,7 @@
         @include tst(all,.5s);
         @include br(5px);
         width: 30px;
-        z-index: 2;
+        z-index: 1;
         height: 60px;
         margin-top: -30px;
         background-color: rgba(0,0,0,0.5);

@@ -1,6 +1,6 @@
 <template>
     <div class="views-wrap">
-        <aj-carousel :carousel_arr="carousel_arr" :active_index="active_index"></aj-carousel>
+        <aj-carousel :carousel_arr="carousel_arr" :carousel_height="320" :active_index="active_index"></aj-carousel>
     </div>
 </template>
 <script>
