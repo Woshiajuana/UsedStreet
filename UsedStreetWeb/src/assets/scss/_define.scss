@@ -1,4 +1,24 @@
 
+//主背景色
+%bgmc{
+    background-color: #fff;
+}
+
+//辅助背景色
+%bgac{
+    background-color: #ffd000;
+}
+
+//字主体颜色
+%cmc{
+    color:#000;
+}
+
+//字体辅助色
+%cac{
+    color:#191400;
+}
+
 %fs0{
     font-size: 0;
 }
@@ -218,10 +238,6 @@
 	color:#fff;
 }
 
-%c0{
-    color:#000;
-}
-
 %c3{
 	color:#333;
 }
@@ -232,6 +248,10 @@
 
 %c6{
 	color:#666;
+}
+
+%c0{
+    color:#000;
 }
 
 %c9{
