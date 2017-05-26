@@ -13,6 +13,12 @@
                     </svg>
                     发现
                 </router-link>
+                <router-link to="/filter" class="nav-item">
+                    <svg class="about-icon" style="width: 19px;height: 19px;">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#filter-icon"></use>
+                    </svg>
+                    筛选
+                </router-link>
                 <router-link to="/about" class="nav-item">
                     <svg class="about-icon">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#about-icon"></use>

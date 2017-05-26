@@ -3,7 +3,7 @@
         <aj-carousel :carousel_arr="carousel_arr" :carousel_height="320" :active_index="active_index"></aj-carousel>
 
         <div class="genre-wrap">
-
+            <i class="genre-arrow"></i>
         </div>
         <ul class="goods-wrap">
                 <li class="goods-group">
