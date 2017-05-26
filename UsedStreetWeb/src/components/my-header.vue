@@ -11,6 +11,10 @@
                 <a href="#/login" class="login-link">登录</a>
                 <a href="#/register" class="register-link">注册</a>
             </div>
+            <div class="user-info-box">
+                <img src="" alt="" class="user-header">
+                <span class="user-name">Woshiajuana</span>
+            </div>
         </div>
     </header>
 </template>
