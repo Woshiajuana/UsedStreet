@@ -232,8 +232,9 @@
         @extend %pf;
         @extend %t0;
         @extend %w100;
+        @extend %bgmc;
         z-index: 99;
-        height: 170px;;
+        height: 170px;
     }
     .header-content{
         @extend %wm;

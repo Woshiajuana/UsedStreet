@@ -7,17 +7,22 @@
         <!--svg-->
         <svg-template></svg-template>
         <!--/svg-->
+        <!--footer-->
+        <my-footer></my-footer>
+        <!--/footer-->
     </div>
 </template>
 
 <script>
     import SvgTemplate from './components/svg-template.vue'
     import MyHeader from './components/my-header.vue'
+    import MyFooter from './components/my-footer.vue'
     export default {
         name: 'app',
         components: {
             SvgTemplate,
-            MyHeader
+            MyHeader,
+            MyFooter
         }
     }
 </script>

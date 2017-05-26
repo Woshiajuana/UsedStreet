@@ -173,7 +173,6 @@
     .carousel-minor-item,
     .carousel-inner-item{
         @extend %bsc;
-        background-position: center;
     }
     .container-minor-box{
         @extend %pa;
