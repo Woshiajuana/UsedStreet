@@ -1,4 +1,6 @@
 
+$mc: #20A0FF;
+$ac: #FF4949;
 //主体宽度
 %wm{
     @extend %ma;
@@ -10,12 +12,12 @@
 
 //主背景色
 %bgmc{
-    background-color: #fff;
+    background-color: #f0f0f0;
 }
 
 //辅助背景色
 %bgac{
-    background-color: #ffd000;
+    background-color: #20A0FF;
 }
 
 //字主体颜色
