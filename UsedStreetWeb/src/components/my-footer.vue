@@ -1,6 +1,13 @@
 <template>
     <footer class="footer-wrap">
-        <div class="footer-top"></div>
+        <div class="footer-top">
+            <svg class="footer-svg">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#footer-svg"></use>
+            </svg>
+            <svg class="footer-svg footer-svg-2">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#footer-svg"></use>
+            </svg>
+        </div>
         <div class="footer-bottom">
             <div class="footer-icon">
                 <a title="新浪微博" class="icon-item" href="javascript:;">
@@ -57,11 +64,39 @@
 </script>
 <style lang="scss">
     @import "../assets/scss/define";
+    .footer-svg{
+        @extend %pa;
+        @extend %t50;
+        @extend %l50;
+        @include tst(fill,.5s);
+        margin-left: -200px;
+        margin-top: -75px;
+        width: 400px;
+        height: 150px;
+    }
+    .footer-svg-2{
+        margin-top: -76px;
+        -webkit-animation: fillColor 3s linear infinite;
+        animation: fillColor 3s linear infinite;
+    }
+    @keyframes fillColor {
+        0%{
+            fill: #000;
+        }
+        50%{
+            fill: $mc;
+        }
+        100%{
+            fill: #000;
+        }
+    }
     .footer-wrap{
     }
     .footer-top{
-        height: 476px;
         @extend %bgmc;
+        @extend %pr;
+        @extend %oh;
+        height: 476px;
     }
     .footer-bottom{
         padding: 80px 0 50px;
