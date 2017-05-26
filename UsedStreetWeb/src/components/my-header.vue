@@ -6,10 +6,29 @@
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-icon"></use>
                 </svg>
             </a>
+            <nav class="nav-wrap">
+                <router-link to="/" exact class="nav-item">
+                    <svg class="find-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#find-icon"></use>
+                    </svg>
+                    发现
+                </router-link>
+                <router-link to="/about" class="nav-item">
+                    <svg class="about-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#about-icon"></use>
+                    </svg>
+                    关于
+                </router-link>
+            </nav>
             <div class="search-wrap"
                 :class="{'active': is_input}">
-                <input type="text" class="search-input" placeholder="搜索">
-                <i class="search-btn" @click="is_input = !is_input">
+                <input type="text" class="search-input" @blur="is_input = false" @focus="is_input = true" v-model="key_words" placeholder="搜索">
+                <i class="search-clear" v-show="key_words" @click="clearInput">
+                    <svg class="clear-icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#clear-icon"></use>
+                    </svg>
+                </i>
+                <i class="search-btn">
                     <svg class="search-icon">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search-icon"></use>
                     </svg>
@@ -20,7 +39,7 @@
                 <a href="#/login" class="login-link">登录</a>
                 <a href="#/register" class="register-link">注册</a>
             </div>
-            <div class="user-info-box">
+            <div class="user-info-box hiddenImportant">
                 <img src="../assets/img/1.jpg" alt="" class="user-header">
                 <div class="user-info">
                     <span class="user-name">woshiajuana</span>
@@ -42,6 +61,22 @@
                     </a>
                     <a class="user-info-link" href="#/">
                         <i>
+                            <svg class="user-info-link-icon" style="width: 18px;height: 18px">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sell-icon"></use>
+                            </svg>
+                        </i>
+                        <span>出售</span>
+                    </a>
+                    <a class="user-info-link" href="#/">
+                        <i>
+                            <svg class="user-info-link-icon" style="width: 18px;height: 18px;">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#opinion-icon"></use>
+                            </svg>
+                        </i>
+                        <span>意见与反馈</span>
+                    </a>
+                    <a class="user-info-link" href="#/">
+                        <i>
                             <svg class="user-info-link-icon">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#exit-icon"></use>
                             </svg>
@@ -58,32 +93,69 @@
         name: 'my-header',
         data () {
             return {
+                key_words: '',
                 is_input: false
+            }
+        },
+        methods: {
+            clearInput () {
+                this.key_words = '';
+                this.$el.getElementsByTagName('input')[0].focus();
             }
         }
     }
 </script>
 <style lang="scss">
     @import "../assets/scss/define";
+    //导航条
+    .nav-wrap{
+        @extend %pa;
+        @extend %f16;
+        top: 52px;
+        left: 100px;
+    }
+    .nav-item{
+        @extend %c6;
+        @include tst(background-color,.5s);
+        background-color: transparent;
+        padding: 10px 16px;
+        &.router-link-active{
+            color: $mc;
+            svg{
+                fill: $mc;
+            }
+            &:hover{
+                background-color: transparent;
+            }
+        }
+        &:hover{
+            background-color: #ddd;
+        }
+    }
+    .find-icon,
+    .about-icon{
+        @extend %vam;
+        @extend %pr;
+        top: -2px;
+        width: 22px;
+        height: 22px;
+        fill: #999;
+    }
     //搜索
     .search-wrap{
         @extend %pa;
+        @extend %r0;
         @include tst(all,.5s);
-        left: 100px;
-        top: 60px;
-        width: 24px;
+        top: 80px;
+        width: 300px;
         height: 32px;
         padding: 0 10px;
-        border-bottom: 1px solid transparent;
+        border-bottom: 1px solid #999;
         &.active{
-            width: 200px;
             border-bottom: 1px solid $mc;
             &:after,
             &:before{
                 background-color: $mc;
-            }
-            .search-icon{
-                fill: $mc;
             }
         }
         &:after,
@@ -93,7 +165,7 @@
             @extend %b0;
             width: 1px;
             height: 5px;
-            background-color: transparent;
+            background-color: #999;
         }
         &:after{
             @extend %r0;
@@ -103,13 +175,44 @@
         }
     }
     .search-input{
-        @extend %dn;
+        @extend %pa;
+        left: 10px;
+        width: 250px;
+        border: none;
+        height: 32px;
+        line-height: 32px;
+        background-color: transparent;
+    }
+    .search-clear{
+        @extend %pa;
+        @extend %t50;
+        @extend %cp;
+        margin-top: -10px;
+        width: 20px;
+        height: 20px;
+        right: 35px;
+        &:hover{
+            .clear-icon{
+                fill: #999;
+            }
+        }
+    }
+    .clear-icon{
+        @extend %pa;
+        @extend %t50;
+        @extend %l50;
+        @include tst(fill,.3s);
+        margin-top: -8px;
+        margin-left: -8px;
+        width: 16px;
+        height: 16px;
+        fill: #ccc;
     }
     .search-btn{
         @extend %pa;
         @extend %cp;
         @extend %t50;
-        left: 10px;
+        right: 10px;
         width: 24px;
         height: 24px;
         margin-top: -12px;
@@ -118,8 +221,13 @@
             @extend %h100;
             fill: #999;
         }
+        &:hover{
+            .search-icon{
+                fill: $mc;
+            }
+        }
     }
-
+    //头部
     .header-wrap{
         @extend %pf;
         @extend %t0;
@@ -153,12 +261,12 @@
             @extend %dib;
             @extend %tac;
             @include br(8px);
-            width: 80px;
+            width: 60px;
             height: 30px;
             line-height: 30px;
             border: 1px solid transparent;
             &.register-link{
-                border: 1px solid $mc;
+                border: 1px solid #999;
             }
         }
     }
@@ -173,7 +281,7 @@
         color: $mc;
         &:hover{
             @extend %cfff;
-            background-color: #58B7FF;
+            background-color: #ccc;
         }
     }
     .user-info-box{
