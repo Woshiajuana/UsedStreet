@@ -17,7 +17,7 @@
                     <svg class="about-icon" style="width: 19px;height: 19px;">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#filter-icon"></use>
                     </svg>
-                    筛选
+                    淘货
                 </router-link>
                 <router-link to="/about" class="nav-item">
                     <svg class="about-icon">
@@ -40,7 +40,6 @@
                     </svg>
                 </i>
             </div>
-
             <div class="user-link-box">
                 <a href="#/login" class="login-link">登录</a>
                 <a href="#/register" class="register-link">注册</a>
