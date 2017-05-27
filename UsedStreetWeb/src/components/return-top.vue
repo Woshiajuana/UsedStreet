@@ -22,11 +22,10 @@
         },
         methods: {
             returnTop () {
-                this.$top(0,true);
+                this.$top('header-wrap',100);
             },
             scrollFun () {
                 this.scroll_top = document.body.scrollTop;
-                console.log(this.scroll_top)
             }
         }
     }

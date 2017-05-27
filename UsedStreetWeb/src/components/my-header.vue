@@ -1,5 +1,5 @@
 <template>
-    <header class="header-wrap">
+    <header class="header-wrap" id="header-wrap">
         <div class="header-content">
             <a href="#/" class="header-logo">
                 <svg class="logo-icon">
