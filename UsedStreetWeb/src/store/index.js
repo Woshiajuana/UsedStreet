@@ -10,7 +10,7 @@ Vue.use(Vuex);
  * 数据存储
  * */
 const state = {
-
+    scroll_top: 0
 };
 
 /**
@@ -31,8 +31,10 @@ const actions = {
  * 提交同步请求
  * */
 const mutations = {
-
-
+    /**设置滚动高度*/
+    [ types.SET_SCROLL_TOP ] ( state, scroll_top ) {
+        state.scroll_top = scroll_top;
+    }
 };
 
 export default new Vuex.Store({

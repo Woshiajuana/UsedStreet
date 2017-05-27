@@ -1,18 +1,24 @@
 <template>
     <div class="return-top-wrap">
         <div class="return-top-content">
-            <svg class="return-top" :class="{'active': scroll_top > 600}" @click="returnTop">
+            <svg class="return-top" :class="{'active': scrollTop > 600}" @click="returnTop">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#return-top-icon"></use>
             </svg>
         </div>
     </div>
 </template>
 <script>
+    import types from '../store/mutation-types'
     export default {
         name: 'return-top',
         data () {
             return {
                 scroll_top: 0
+            }
+        },
+        computed: {
+            scrollTop () {
+                return this.$store.state.scroll_top;
             }
         },
         created () {
@@ -25,7 +31,8 @@
                 this.$top('header-wrap',100);
             },
             scrollFun () {
-                this.scroll_top = document.body.scrollTop;
+                var scroll_top = document.documentElement.scrollTop || document.body.scrollTop;
+                this.$store.commit( types.SET_SCROLL_TOP, scroll_top )
             }
         }
     }

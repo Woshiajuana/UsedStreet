@@ -1,11 +1,11 @@
 <template>
-    <div class="views-wrap">
-        <aj-carousel :carousel_arr="carousel_arr" :carousel_height="320" :active_index="active_index"></aj-carousel>
-
-        <div class="genre-wrap">
-            <i class="genre-arrow"></i>
+    <div class="views-wrap home-view">
+        <div class="view-session" :style="{'top': scrollTop + 'px'}">
+            <aj-carousel :carousel_arr="carousel_arr" :carousel_height="320" :active_index="active_index"></aj-carousel>
         </div>
-        <ul class="goods-wrap">
+        <genre></genre>
+        <!--<div class="view-session">-->
+            <ul class="goods-wrap">
                 <li class="goods-group">
                     <a href="#/" class="goods-item goods-1">
                         <i class="goods-img"></i>
@@ -101,10 +101,12 @@
                     </a>
                 </li>
             </ul>
+        <!--</div>-->
     </div>
 </template>
 <script>
-    import ajCarousel from '../../components/aj-carousel.vue';
+    import ajCarousel from '../../components/aj-carousel.vue'
+    import genre from '../../components/genre.vue'
     export default {
         name: 'home',
         data () {
@@ -120,27 +122,36 @@
                 active_index: 0
             }
         },
+        computed: {
+            scrollTop () {
+                return 170 - (this.$store.state.scroll_top * 0.2);
+            }
+        },
         components: {
-            ajCarousel
+            ajCarousel,
+            genre
         }
     }
 </script>
 <style lang="scss">
     @import "../../assets/scss/define";
+    .view-session{
+        @extend %pf;
+        @extend %l0;
+        @extend %r0;
+    }
     .views-wrap{
         @extend %w100;
         padding-top: 170px;
     }
-    .genre-wrap{
-        background-color: $mc;
-        height: 100px;
-        padding: 80px 0 50px;
-        margin-top: 120px;
+    .home-view{
+        height: 20000px;
     }
     .goods-wrap{
         @extend %wm;
         @extend %pr;
-        padding-top: 80px;
+        padding-top: 800px;
+        margin-top: 1200px;
     }
     .goods-group{
         @extend %clearfix;
