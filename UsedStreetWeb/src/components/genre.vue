@@ -178,7 +178,7 @@
         @extend %bsc;
         width: 640px;
         height: 180px;
-        background-image: url("../assets/img/2.jpg");
+        background-image: url("http://www.owulia.com/static/temp/3.jpg");
         margin-top: 80px;
     }
 </style>

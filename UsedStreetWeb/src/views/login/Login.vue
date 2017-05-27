@@ -60,7 +60,7 @@
             height: 543px;
             .check-code-box{
                 @extend %o1;
-                height: 53px;
+                height: 54px;
                 margin: 10px 0 20px;
             }
         }
