@@ -16,34 +16,13 @@
             </div>
             <i class="login-btn" @click=" is_user_code = !is_user_code" :class="{'active': user_name && user_password && (!is_user_code || user_code) }">登录</i>
             <a href="#/register" class="user-link">没有帐号？点我<span>去注册</span></a>
-            <p class="tripartite-title">您也可以使用下边第三方帐号快捷登录：</p>
-            <div class="tripartite-box">
-                <a href="#" title="QQ登录" class="tripartite-box-item">
-                    <svg class="">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#qq-icon"></use>
-                    </svg>
-                </a>
-                <a href="#" title="微信登录" class="tripartite-box-item">
-                    <svg>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wx-icon"></use>
-                    </svg>
-                </a>
-                <a href="#" title="微博登录" class="tripartite-box-item">
-                    <svg>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xlwb-icon"></use>
-                    </svg>
-                </a>
-                <a href="#" title="GitHub登录" class="tripartite-box-item">
-                    <svg>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gh-icon"></use>
-                    </svg>
-                </a>
-            </div>
+            <other-login></other-login>
         </div>
     </div>
 </template>
 <script>
     import UserInput from '../../components/user-input.vue'
+    import OtherLogin from '../../components/other-login.vue'
     export default {
         name: 'login',
         data () {
@@ -56,15 +35,18 @@
             }
         },
         components: {
-            UserInput
+            UserInput,
+            OtherLogin
         }
     }
 </script>
 <style lang="scss">
     @import "../../assets/scss/define";
+    .register-view,
     .login-view{
         padding: 180px 0 80px;
     }
+
     .login-box{
         @extend %ma;
         @extend %bsb;
@@ -101,6 +83,7 @@
         margin-left: 10px;
         background-color: #f5f5f5;
     }
+    .register-btn,
     .login-btn{
         @extend %db;
         @extend %f16;
@@ -173,32 +156,6 @@
         @extend %c9;
         &:hover{
             color: $mc;
-        }
-    }
-    .tripartite-title{
-        @extend %c6;
-        height: 38px;
-        line-height: 38px;
-        margin-top: 15px;
-        border-top: 1px solid #ddd;
-    }
-    .tripartite-box{
-        @extend %tac;
-        margin: 16px 0;
-    }
-    .tripartite-box-item{
-        @extend %dib;
-        margin: 0 2px;
-        width: 32px;
-        height: 32px;
-        svg{
-            @extend %w100;
-            @extend %h100;
-            @include tst(fill,.3s);
-            fill: #999;
-            &:hover{
-                fill: $mc;
-            }
         }
     }
 </style>
