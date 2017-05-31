@@ -26,20 +26,31 @@
             <p class="agreement-prompt">
                 点击「注册」按钮，即代表你同意<a href="#/agreement">《UsedStreet协议》</a>
             </p>
-            <i class="register-btn" @click="register" :class="{'active': user_name && user_password && user_password && ( user_too_password == user_password ) }">注册</i>
+            <i class="register-btn" @click="sendEmail" :class="{'active': user_name && user_password && user_password && ( user_too_password == user_password ) }">注册</i>
             <a href="#/login" class="user-link">已有帐号？点我<span>去登录</span></a>
             <other-login></other-login>
         </div>
+        <Popup @sure="register" @close="is_show = false" :is_show="is_show">
+            <p class="email_code_prompt">验证码已发送至邮箱：<strong>{{user_email}}</strong></p>
+            <user-input
+                :styles="'margin:10px 0'"
+                :type="'text'"
+                v-model="user_email_code"
+                @changeValue="checkUserEmail"
+                :placeholder="'请输入验证码'"></user-input>
+        </Popup>
     </div>
 </template>
 <script>
     import UserInput from '../../components/user-input.vue'
     import OtherLogin from '../../components/other-login.vue'
     import Tool from '../../assets/lib/Tool'
+    import Popup from '../../components/popup.vue'
     export default {
         name: 'register',
         data () {
             return {
+                is_show: false,
                 is_remember: true,
                 user_name: '',
                 user_password: '',
@@ -49,14 +60,20 @@
                 is_user_code: false,
                 szReg: /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/,
                 user_name_timer: '',
-                user_email_timer: ''
+                user_email_timer: '',
+                user_email_code: ''
             }
         },
         components: {
             UserInput,
-            OtherLogin
+            OtherLogin,
+            Popup
         },
         methods: {
+            /**发送邮件*/
+            sendEmail () {
+                if ( this.checkInput() ) return;
+            },
             /**注册*/
             register () {
                 if ( this.checkInput() ) return;
@@ -156,6 +173,14 @@
         @extend %c9;
         margin: 20px 0;
         a{
+            color: $mc;
+        }
+    }
+    .email_code_prompt{
+        @extend %f12;
+        @extend %c9;
+        line-height: 1.5;
+        strong{
             color: $mc;
         }
     }
