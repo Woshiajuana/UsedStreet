@@ -1,5 +1,7 @@
 <template>
-    <div :style="styles" class="input-wrap" :class="{'active':is_active || input_value}">
+    <div class="input-wrap"
+         :style="styles"
+         :class="{'active':is_active || input_value, 'error':is_error}">
         <label class="input-prompt" v-text="placeholder"></label>
         <i class="input-bar"></i>
         <input class="input-con" v-if="type == 'text'" type="text" v-model="input_value" @focus="is_active = true" @blur="is_active = false">
@@ -14,7 +16,7 @@
 <script>
     export default {
         name: 'user-input',
-        props: [ 'type', 'placeholder', 'value', 'styles'],
+        props: [ 'type', 'placeholder', 'value', 'styles', 'is_error'],
         created () {
             this.input_value = this.value;
         },
@@ -30,7 +32,7 @@
                 this.focus();
             },
             input_value () {
-                this.$emit('change',this.input_value);
+                this.$emit('changeValue',this.input_value);
             },
             focus () {
                 this.$el.getElementsByTagName('input')[0].focus()
@@ -65,6 +67,19 @@
                 @extend %r0;
                 @extend %w100;
                 background-color: $mc;
+            }
+        }
+        &.error{
+            .input-prompt{
+                @extend %f12;
+                bottom: 26px;
+                color: #FF4949;
+            }
+            .input-bar{
+                @extend %l0;
+                @extend %r0;
+                @extend %w100;
+                background-color: #FF4949;
             }
         }
     }

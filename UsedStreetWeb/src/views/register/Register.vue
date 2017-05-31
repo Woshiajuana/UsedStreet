@@ -1,9 +1,21 @@
 <template>
     <div class="views-wrap register-view">
         <div class="register-box">
-            <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_name" :placeholder="'请输入帐号'"></user-input>
-            <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_email" :placeholder="'请输入邮箱'"></user-input>
-            <user-input :styles="'margin:10px 0'" :type="'password'" v-model="user_password" :placeholder="'请输入密码'"></user-input>
+            <user-input
+                :styles="'margin:10px 0'"
+                :type="'text'"
+                v-model="user_name"
+                :placeholder="'请输入昵称（3~12个字母、数字组成）'"></user-input>
+            <user-input
+                :styles="'margin:10px 0'"
+                :type="'text'"
+                v-model="user_email"
+                :placeholder="'请输入邮箱'"></user-input>
+            <user-input
+                :styles="'margin:10px 0'"
+                :type="'password'"
+                v-model="user_password"
+                :placeholder="'请输入密码（6~12个字母、数字组成）'"></user-input>
             <user-input :styles="'margin:10px 0'" :type="'password'" v-model="user_too_password" :placeholder="'请确认密码'"></user-input>
             <i class="register-btn" :class="{'active': user_name && user_password && user_password && ( user_too_password == user_password ) }">注册</i>
             <a href="#/login" class="user-link">已有帐号？点我<span>去登录</span></a>
