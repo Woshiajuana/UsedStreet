@@ -69,19 +69,6 @@
                 background-color: $mc;
             }
         }
-        &.error{
-            .input-prompt{
-                @extend %f12;
-                bottom: 26px;
-                color: #FF4949;
-            }
-            .input-bar{
-                @extend %l0;
-                @extend %r0;
-                @extend %w100;
-                background-color: #FF4949;
-            }
-        }
     }
     .input-con{
         @extend %df1;
@@ -94,7 +81,7 @@
     }
     .input-prompt{
         @extend %pa;
-        @extend %f16;
+        @extend %f14;
         @extend %c9;
         @extend %b0;
         @include tst(all,.3s);

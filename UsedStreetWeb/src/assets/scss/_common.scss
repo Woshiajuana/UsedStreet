@@ -11,3 +11,86 @@ body{
     overflow-x: hidden;
 
 }
+
+.message-wrap{
+    @extend %pf;
+    @extend %f14;
+    @extend %l50;
+    @extend %c6;
+    @include br(3px);
+    z-index: 999;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px 0 50px;
+    top: 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12), 0 0 6px rgba(0,0,0,.04);
+    &.info{
+        .message-icon{
+            background-color: $mc;
+        }
+    }
+    &.success{
+        .message-icon{
+            background-color: #13CE66;
+        }
+    }
+    &.warning{
+        .message-icon{
+            background-color: #F7BA2A;
+        }
+    }
+    &.danger{
+        .message-icon{
+            background-color: #FF4949;
+        }
+    }
+    span{
+        @extend %vam;
+    }
+}
+
+.message-icon{
+    @extend %pa;
+    @extend %vam;
+    @extend %t0;
+    @extend %l0;
+    @extend %b0;
+    @extend %bsb;
+    fill: #fff;
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+}
+
+
+.animated {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+}
+@keyframes slideInDown {
+    from {
+        transform: translate3d(0, -150%, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.slideInDown {
+    animation-name: slideInDown;
+}
+@keyframes slideOutUp {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(0, -150%, 0);
+    }
+}
+.slideOutUp {
+    animation-name: slideOutUp;
+}

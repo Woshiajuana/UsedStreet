@@ -1,8 +1,8 @@
 <template>
     <div class="views-wrap login-view">
         <div class="login-box" :class="{'active': is_user_code}">
-            <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_name" :placeholder="'请输入帐号'"></user-input>
-            <user-input :styles="'margin:10px 0'" :type="'password'" v-model="user_password" :placeholder="'请输入密码'"></user-input>
+            <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_name" :placeholder="'帐号/邮箱'"></user-input>
+            <user-input :styles="'margin:10px 0'" :type="'password'" v-model="user_password" :placeholder="'密码'"></user-input>
             <div class="check-code-box" v-if="is_user_code">
                 <div><user-input :type="'text'" v-model="user_code" :placeholder="'请输入验证码'"></user-input></div>
                 <img title="看不清？换一张" class="check-code-img" src="" alt="">
@@ -14,7 +14,7 @@
                 </span>
                 <a href="#/retrieve" class="back-password">忘记密码？</a>
             </div>
-            <i class="login-btn" @click=" is_user_code = !is_user_code" :class="{'active': user_name && user_password && (!is_user_code || user_code) }">登录</i>
+            <i class="login-btn" @click="login" :class="{'active': user_name && user_password && (!is_user_code || user_code) }">登录</i>
             <a href="#/register" class="user-link">没有帐号？点我<span>去注册</span></a>
             <other-login></other-login>
         </div>
@@ -37,6 +37,13 @@
         components: {
             UserInput,
             OtherLogin
+        },
+        methods: {
+            login () {
+                this.$message({
+                    msg: '测试一下哈哈哈'
+                })
+            }
         }
     }
 </script>
