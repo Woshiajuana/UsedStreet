@@ -1,25 +1,25 @@
 /**
  * Created by Administrator on 2017/5/2.
  */
-const Tool = function (win) {
+const Tool = function ( win ) {
     let Tool = {};
     /**
      * 操作数据到sessionstorage
      * */
     Tool.dataToSessionStorageOperate = {
         /**存储*/
-        save: function (data_name,data_value) {
+        save: function ( data_name, data_value ) {
             if(typeof data_name != 'undefined' && typeof data_value != 'undefined')
-                sessionStorage.setItem(data_name,JSON.stringify(data_value));
+                sessionStorage.setItem( data_name,JSON.stringify( data_value ));
         },
         /**取出*/
-        achieve: function (data_name) {
-            var data_value = sessionStorage.getItem(data_name);
-            data_value && (data_value = JSON.parse(data_value));
+        achieve: function ( data_name ) {
+            var data_value = sessionStorage.getItem( data_name );
+            data_value && ( data_value = JSON.parse( data_value ));
             return data_value;
         },
         /**删除*/
-        remove: function (data_name) {
+        remove: function ( data_name ) {
             if(data_name)
                 sessionStorage.removeItem(data_name);
         },
@@ -33,18 +33,18 @@ const Tool = function (win) {
      * */
     Tool.dataToLocalStorageOperate = {
         /**存储*/
-        save: function (data_name,data_value) {
+        save: function ( data_name,data_value ) {
             if(typeof data_name != 'undefined' && typeof data_value != 'undefined')
                 localStorage.setItem(data_name,JSON.stringify(data_value));
         },
         /**取出*/
-        achieve: function (data_name) {
+        achieve: function ( data_name ) {
             var data_value = localStorage.getItem(data_name);
             data_value && (data_value = JSON.parse(data_value));
             return data_value;
         },
         /**删除*/
-        remove: function (data_name) {
+        remove: function ( data_name ) {
             if(data_name)
                 localStorage.removeItem(data_name);
         },
@@ -66,9 +66,16 @@ const Tool = function (win) {
     };
 
     /**
+     * 计算字符串长度
+     * */
+    Tool.GetLength = function( str ) {
+        return str.replace(/[\u0391-\uFFE5]/g,"aa").length;
+    };
+
+    /**
      * 格式化时间
      * */
-    Tool.format = function(fmt,date) {
+    Tool.format = function( fmt, date ) {
         var time = date || new Date();
         var o = {
             "M+" : time.getMonth()+1,

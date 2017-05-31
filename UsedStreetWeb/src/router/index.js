@@ -18,13 +18,19 @@ export default new Router({
         {
             path: '/login',
             name: 'login',
-            component: Login
+            component: Login,
+            meta: {
+                position: 'static'
+            }
         },
         /**注册*/
         {
             path: '/register',
             name: 'register',
-            component: Register
+            component: Register,
+            meta: {
+                position: 'static'
+            }
         }
     ]
 })

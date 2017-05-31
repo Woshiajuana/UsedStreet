@@ -31,7 +31,7 @@
                 user_name: '',
                 user_password: '',
                 user_code: '',
-                is_user_code: false,
+                is_user_code: false
             }
         },
         components: {
@@ -40,9 +40,32 @@
         },
         methods: {
             login () {
-                this.$message({
-                    msg: '测试一下哈哈哈'
-                })
+                if ( this.checkInput() ) return;
+
+            },
+            checkInput () {
+                if ( !this.user_name ) {
+                    this.$message({
+                        msg: '请输入昵称或邮箱',
+                        type: 'danger'
+                    });
+                    return true;
+                }
+                if ( !this.user_password ) {
+                    this.$message({
+                        msg: '请输入密码',
+                        type: 'danger'
+                    });
+                    return true;
+                }
+                if ( this.is_user_code && !this.user_code ) {
+                    this.$message({
+                        msg: '请输入验证码',
+                        type: 'danger'
+                    });
+                    return true;
+                }
+                return false;
             }
         }
     }
@@ -51,9 +74,8 @@
     @import "../../assets/scss/define";
     .register-view,
     .login-view{
-        padding: 180px 0 80px;
+        padding: 0 0 80px;
     }
-
     .login-box{
         @extend %ma;
         @extend %bsb;

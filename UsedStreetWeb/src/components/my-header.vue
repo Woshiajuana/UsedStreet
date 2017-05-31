@@ -1,5 +1,5 @@
 <template>
-    <header class="header-wrap" id="header-wrap">
+    <header class="header-wrap" id="header-wrap" :style="{'position': headerPosition}">
         <div class="header-content">
             <a href="#/" class="header-logo">
                 <svg class="logo-icon">
@@ -100,6 +100,11 @@
             return {
                 key_words: '',
                 is_input: false
+            }
+        },
+        computed: {
+            headerPosition () {
+                return this.$route.meta.position || 'fixed';
             }
         },
         methods: {
