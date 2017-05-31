@@ -20,7 +20,8 @@ export default new Router({
             name: 'login',
             component: Login,
             meta: {
-                position: 'static'
+                position: 'static',
+                is_show: false
             }
         },
         /**注册*/
@@ -29,7 +30,8 @@ export default new Router({
             name: 'register',
             component: Register,
             meta: {
-                position: 'static'
+                position: 'static',
+                is_show: false
             }
         }
     ]

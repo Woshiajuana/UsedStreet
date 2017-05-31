@@ -26,7 +26,7 @@
                     关于
                 </router-link>
             </nav>
-            <div class="search-wrap"
+            <div v-if="isShow" class="search-wrap"
                 :class="{'active': is_input}">
                 <input type="text" class="search-input" @blur="is_input = false" @focus="is_input = true" v-model="key_words" placeholder="搜索">
                 <i class="search-clear" v-show="key_words" @click="clearInput">
@@ -40,7 +40,7 @@
                     </svg>
                 </i>
             </div>
-            <div class="user-link-box">
+            <div v-if="isShow" class="user-link-box">
                 <a href="#/login" class="login-link">登录</a>
                 <a href="#/register" class="register-link">注册</a>
             </div>
@@ -105,6 +105,9 @@
         computed: {
             headerPosition () {
                 return this.$route.meta.position || 'fixed';
+            },
+            isShow () {
+                return typeof this.$route.meta.is_show == 'undefined' ? true : false;
             }
         },
         methods: {
