@@ -45,8 +45,25 @@ body{
             background-color: #FF4949;
         }
     }
+    &.loading{
+        .message-icon{
+            animation: rotate360 1s linear infinite;
+        }
+    }
     span{
         @extend %vam;
+    }
+}
+
+
+@keyframes rotate360 {
+    0%{
+        transform: rotate(0deg);
+        transform-origin: center;
+    }
+    100%{
+        transform: rotate(360deg);
+        transform-origin: center;
     }
 }
 

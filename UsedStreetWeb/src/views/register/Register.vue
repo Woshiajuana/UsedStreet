@@ -5,11 +5,13 @@
                 :styles="'margin:10px 0'"
                 :type="'text'"
                 v-model="user_name"
+                @changeValue="checkUserName"
                 :placeholder="'昵称（最长7个汉字或14个英文）'"></user-input>
             <user-input
                 :styles="'margin:10px 0'"
                 :type="'text'"
                 v-model="user_email"
+                @changeValue="checkUserEmail"
                 :placeholder="'邮箱（可用于找回密码与登录）'"></user-input>
             <user-input
                 :styles="'margin:10px 0'"
@@ -45,7 +47,9 @@
                 user_email: '',
                 user_code: '',
                 is_user_code: false,
-                szReg: /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/
+                szReg: /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/,
+                user_name_timer: '',
+                user_email_timer: ''
             }
         },
         components: {
@@ -53,10 +57,28 @@
             OtherLogin
         },
         methods: {
+            /**注册*/
             register () {
                 if ( this.checkInput() ) return;
 
             },
+            /**检测用户昵称是否已注册*/
+            checkUserName ( user_name ) {
+                clearTimeout( this.user_name_timer );
+                console.log( user_name )
+                this.user_name_timer = setTimeout(() => {
+                    console.log( '去检测' + user_name)
+                },1000);
+            },
+            /**检测用户邮箱是否已注册*/
+            checkUserEmail ( user_email ) {
+                clearTimeout( this.user_email_timer );
+                console.log( user_email )
+                this.user_email_timer = setTimeout(() => {
+                    console.log( '去检测' + user_email)
+                },1000);
+            },
+            /**检测*/
             checkInput () {
                 if ( !this.user_name.trim() ) {
                     this.$message({

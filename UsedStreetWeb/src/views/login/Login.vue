@@ -41,7 +41,10 @@
         methods: {
             login () {
                 if ( this.checkInput() ) return;
-
+                this.$message({
+                    msg: '正在登录中',
+                    type: 'loading'
+                });
             },
             checkInput () {
                 if ( !this.user_name ) {

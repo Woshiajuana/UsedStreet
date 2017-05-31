@@ -1,10 +1,10 @@
 <template>
     <div class="input-wrap"
          :style="styles"
-         :class="{'active':is_active || input_value, 'error':is_error}">
+         :class="{'active':is_active || input_value}">
         <label class="input-prompt" v-text="placeholder"></label>
         <i class="input-bar"></i>
-        <input class="input-con" v-if="type == 'text'" type="text" v-model="input_value" @focus="is_active = true" @blur="is_active = false">
+        <input class="input-con" v-if="type == 'text'" type="text" @input="change" v-model="input_value" @focus="is_active = true" @blur="is_active = false">
         <input class="input-con" v-else type="password" v-model="input_value" @focus="is_active = true" @blur="is_active = false">
         <i class="input-clear" @click="clearInput" v-show="input_value">
             <svg class="clear-icon">
@@ -31,7 +31,7 @@
                 this.input_value = '';
                 this.focus();
             },
-            input_value () {
+            change () {
                 this.$emit('changeValue',this.input_value);
             },
             focus () {
