@@ -14,69 +14,124 @@
             <ul class="genre-menu" :style="{'top': (100 + this.scrollTop * 0.2) + 'px'}">
                 <li>
                     <div class="hover-genre-box">
-
+                        <h3 class="genre-title">分类目录</h3>
+                        <div class="genre-con">
+                            <a href="#">自行车</a>
+                            <a href="#">电动车</a>
+                            <a href="#">摩托车</a>
+                            <a href="#">其它出行</a>
+                        </div>
+                        <h3 class="genre-title">好货推荐</h3>
+                        <div class="genre-con">
+                            <a class="genre-goods-list-item" href=""></a>
+                        </div>
                     </div>
-                    <a class="genre-menu-item" href="#">
+                    <div class="genre-menu-item">
                         <svg class="genre-menu-item-icon">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#travel-icon"></use>
                         </svg>
                         出行类
-                    </a>
+                    </div>
                 </li>
                 <li>
                     <div class="hover-genre-box">
-
+                        <h3 class="genre-title">分类目录</h3>
+                        <div class="genre-con">
+                            <a href="#">各类小说</a>
+                            <a href="#">教科书</a>
+                            <a href="#">其它图书</a>
+                        </div>
+                        <h3 class="genre-title">好货推荐</h3>
+                        <div class="genre-con">
+                            <a class="genre-goods-list-item" href=""></a>
+                        </div>
                     </div>
-                    <a class="genre-menu-item" href="#">
+                    <div class="genre-menu-item">
                         <svg class="genre-menu-item-icon" style="width: 20px;height: 20px;left: 22px;margin-top: -9px;">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#book-icon"></use>
                         </svg>
                         图书类
-                    </a>
+                    </div>
                 </li>
                 <li>
                     <div class="hover-genre-box">
-
+                        <h3 class="genre-title">分类目录</h3>
+                        <div class="genre-con">
+                            <a href="#">电风扇</a>
+                            <a href="#">电脑</a>
+                            <a href="#">手机</a>
+                            <a href="#">洗衣机</a>
+                            <a href="#">其它电器</a>
+                        </div>
+                        <h3 class="genre-title">好货推荐</h3>
+                        <div class="genre-con">
+                            <a class="genre-goods-list-item" href=""></a>
+                        </div>
                     </div>
-                    <a class="genre-menu-item" href="#">
+                    <div class="genre-menu-item">
                         <svg class="genre-menu-item-icon">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fan-icon"></use>
                         </svg>
                         电子商品类
-                    </a>
+                    </div>
                 </li>
                 <li>
                     <div class="hover-genre-box">
-
+                        <h3 class="genre-title">分类目录</h3>
+                        <div class="genre-con">
+                            <a href="#">鞋子</a>
+                            <a href="#">衣服</a>
+                            <a href="#">其它服饰</a>
+                        </div>
+                        <h3 class="genre-title">好货推荐</h3>
+                        <div class="genre-con">
+                            <a class="genre-goods-list-item" href=""></a>
+                        </div>
                     </div>
-                    <a class="genre-menu-item" href="#">
+                    <div class="genre-menu-item">
                         <svg class="genre-menu-item-icon">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dress-icon"></use>
                         </svg>
                         服饰鞋子类
-                    </a>
+                    </div>
                 </li>
                 <li>
                     <div class="hover-genre-box">
-
+                        <h3 class="genre-title">分类目录</h3>
+                        <div class="genre-con">
+                            <a href="#">脸盆</a>
+                            <a href="#">棉被</a>
+                            <a href="#">其它</a>
+                        </div>
+                        <h3 class="genre-title">好货推荐</h3>
+                        <div class="genre-con">
+                            <a class="genre-goods-list-item" href=""></a>
+                        </div>
                     </div>
-                    <a class="genre-menu-item" href="#">
+                    <div class="genre-menu-item">
                         <svg class="genre-menu-item-icon" style="width: 20px;height: 20px;left: 22px;margin-top: -9px;">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#life-icon"></use>
                         </svg>
                         日常生活类
-                    </a>
+                    </div>
                 </li>
                 <li>
                     <div class="hover-genre-box">
-
+                        <h3 class="genre-title">分类目录</h3>
+                        <div class="genre-con">
+                            <a href="#">其它</a>
+                        </div>
+                        <h3 class="genre-title">好货推荐</h3>
+                        <div class="genre-con">
+                            <a class="genre-goods-list-item" href=""></a>
+                        </div>
                     </div>
-                    <a class="genre-menu-item no-border" href="#">
+                    <div class="genre-menu-item no-border">
                         <svg class="genre-menu-item-icon">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#other-icon"></use>
                         </svg>
                         更多
-                    </a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -165,6 +220,26 @@
         left: 250px;
         width: 740px;
         background-color: rgba(29,140,224,.9);
+    }
+    .genre-title{
+        @extend %f16;
+        @extend %cc;
+        height: 50px;
+        line-height: 50px;
+        margin: 10px 30px;
+    }
+    .genre-con{
+        @extend %f14;
+        margin: 10px 50px;
+        a{
+            @extend %cfff;
+            @include tst(border-bottom,.3s);
+            margin: 0 10px;
+            border-bottom: 1px solid transparent;
+            &:hover{
+                border-bottom: 1px solid #fff;
+            }
+        }
     }
     .genre-goods-list{
         @extend %pa;
