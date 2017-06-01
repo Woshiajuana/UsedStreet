@@ -26,11 +26,14 @@
             <p class="agreement-prompt">
                 点击「注册」按钮，即代表你同意<a href="#/agreement">《UsedStreet协议》</a>
             </p>
-            <i class="register-btn" @click="sendEmail" :class="{'active': user_name && user_password && user_password && ( user_too_password == user_password ) }">注册</i>
+            <i class="register-btn" @click="sendEmail" :class="{'active': isBtnActive }">注册</i>
             <a href="#/login" class="user-link">已有帐号？点我<span>去登录</span></a>
             <other-login></other-login>
         </div>
-        <Popup @sure="register" @close="is_show = false" :is_show="is_show">
+        <Popup
+            v-if="is_popup"
+            @sure="register"
+            @close="is_popup = false">
             <p class="email_code_prompt">验证码已发送至邮箱：<strong>{{user_email}}</strong></p>
             <user-input
                 :styles="'margin:10px 0'"
@@ -50,7 +53,7 @@
         name: 'register',
         data () {
             return {
-                is_show: false,
+                is_popup: false,
                 is_remember: true,
                 user_name: '',
                 user_password: '',
@@ -64,6 +67,11 @@
                 user_email_code: ''
             }
         },
+        computed: {
+            isBtnActive () {
+                return  this.user_name && this.user_email && this.user_password && this.user_password && ( this.user_too_password == this.user_password );
+            }
+        },
         components: {
             UserInput,
             OtherLogin,
@@ -72,6 +80,7 @@
         methods: {
             /**发送邮件*/
             sendEmail () {
+                this.is_popup = true;
                 if ( this.checkInput() ) return;
             },
             /**注册*/

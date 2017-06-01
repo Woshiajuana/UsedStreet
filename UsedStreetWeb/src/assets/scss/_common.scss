@@ -11,7 +11,6 @@ body{
     overflow-x: hidden;
 
 }
-
 .message-wrap{
     @extend %pf;
     @extend %f14;
@@ -54,8 +53,6 @@ body{
         @extend %vam;
     }
 }
-
-
 @keyframes rotate360 {
     0%{
         transform: rotate(0deg);
@@ -66,7 +63,6 @@ body{
         transform-origin: center;
     }
 }
-
 .message-icon{
     @extend %pa;
     @extend %vam;
@@ -79,8 +75,6 @@ body{
     height: 40px;
     padding: 12px;
 }
-
-
 .animated {
     animation-duration: .3s;
     animation-fill-mode: both;

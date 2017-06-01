@@ -1,7 +1,7 @@
 <template>
-    <div class="popup-wrap" v-show="is_show">
+    <div class="popup-wrap">
         <div class="popup-mask"></div>
-        <div class="popup-content">
+        <div class="popup-content animated slideInDown">
             <h3 class="popup-title" v-text="promptTitle"></h3>
             <svg class="popup-close" @click="close">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#danger-icon"></use>
@@ -21,7 +21,7 @@
 <script>
     export default {
         name: 'popup',
-        props: ['is_show','prompt_title'],
+        props: ['prompt_title'],
         computed: {
             promptTitle () {
                 return this.prompt_title || '提示：';
@@ -51,19 +51,42 @@
         @extend %r0;
         @extend %b0;
         @extend %l0;
-        z-index: 1000;
+        z-index: 98;
         background: rgba(55,58,71,.3);
+        animation-duration: .5s;
+        animation-name: popup-mask-fade;
     }
     .popup-content{
         @extend %pf;
         @extend %t50;
         @extend %l50;
-        z-index: 1010;
+        animation-duration: .5s;
+        animation-name: popup-content-slideOutUp;
+        z-index: 99;
         width: 300px;
         padding: 60px 50px;
         margin-left: -200px;
         background-color: #fff;
         box-shadow: 0 2px 4px rgba(0,0,0,.12), 0 0 6px rgba(0,0,0,.04);
+    }
+    @keyframes popup-content-slideOutUp {
+        from {
+            transform: translate3d(0, -10%, 0);
+            visibility: visible;
+            opacity: 0;
+        }
+        to {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    }
+    @keyframes popup-mask-fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
     .popup-title{
         @extend %f16;
@@ -102,11 +125,9 @@
     .popup-sure{
         @extend %dib;
         @extend %cp;
-        @extend %l50;
         @extend %c9;
         @extend %f14;
         @include tst(color,.3s);
-        margin-left: -20px;
         padding: 10px;
         height: 20px;
         fill: #999;
