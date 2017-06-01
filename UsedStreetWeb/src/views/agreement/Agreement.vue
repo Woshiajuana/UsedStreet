@@ -4,7 +4,7 @@
             <h1 class="agreement-title">《UsedStreet协议》</h1>
             <p>
                 <strong>特别提示：</strong><br>
-                您在使用UsedStreet提供的各项服务之前，请您务必审慎阅读、充分理解本协议各条款内容，特别是以粗体标注的部分，包括但不限于免除或者限制责任的条款。如您不同意本服务协议及/或随时对其的修改，您可以主动停止使用UsedStreet提供的服务；您一旦使用UsedStreet服务，即视为您已了解并完全同意本服务协议各项内容，包括UsedStreet对服务协议随时所做的任何修改，并成为UsedStreet用户。
+                您在使用UsedStreet提供的各项服务之前，请您务必审慎阅读、充分理解本协议各条款内容，包括但不限于免除或者限制责任的条款。如您不同意本服务协议及/或随时对其的修改，您可以主动停止使用UsedStreet提供的服务；您一旦使用UsedStreet服务，即视为您已了解并完全同意本服务协议各项内容，包括UsedStreet对服务协议随时所做的任何修改，并成为UsedStreet用户。
             </p>
             <p>
                 <strong>一、总则</strong><br>
@@ -20,7 +20,7 @@
                 2．3　用户不应将其帐号、密码转让、出售或出借予他人使用，若用户授权他人使用帐户，应对被授权人在该帐户下发生所有行为负全部责任。由于帐号关联用户使用信息，仅当依法律法规、司法裁定或经UsedStreet同意，并符合UsedStreet规定的用户帐号转让流程的情况下，方可进行帐号的转让。<br>
                 2．4　因您个人原因导致的帐号信息遗失，如需找回UsedStreet帐号信息，请按照UsedStreet帐号找回要求提供相应的信息，并确保提供的信息合法真实有效，若提供的信息不符合要求，无法通过UsedStreet安全验证，UsedStreet有权拒绝提供帐号找回服务；若帐号的唯一凭证不再有效，UsedStreet有权拒绝支持帐号找回。例如手机号二次出售，UsedStreet可拒绝支持帮助找回原手机号绑定的帐号。<br>
                 2．5　为了防止资源占用，如您连续六个月未使用您的UsedStreet帐号或未通过UsedStreet认可的其他方式登录过您的UsedStreet帐户，UsedStreet有权对该帐户进行注销，您将不能再通过该帐号登录名登录本网站或使用相关服务。如该帐户有关联的理财产品、待处理交易或余额，UsedStreet会在合理范围内协助您处理，请您按照UsedStreet提示的方式进行操作。<br>
-                2．6　UsedStreet的隐私权保护声明（http://www.baidu.com/duty/yinsiquan.html）说明了UsedStreet如何收集和使用用户信息。您保证在您使用UsedStreet的所有产品和服务前，已经充分了解并同意UsedStreet可以据此处理用户信息。<br>
+                2．6　UsedStreet的隐私权保护声明。您保证在您使用UsedStreet的所有产品和服务前，已经充分了解并同意UsedStreet可以据此处理用户信息。<br>
                 2．7　当您使用UsedStreet产品进行支付、登录等操作的时候，服务器会自动接收、验证、并记录一些必要的信息，如手机号码、IP地址、服务访问异常信息、以及部分设备信息等，以保障您在使用UsedStreet服务时账户登录和支付过程的安全，进而保护您的上网安全。您使用UsedStreet的服务，即表示您同意UsedStreet可以按照相关的隐私权政策处理您的个人信息。UsedStreet可能会与合作伙伴共同向您提供您所要求的服务或者共同向您展示您可能感兴趣的内容。在信息为该项产品/服务所必须的情况下，您同意UsedStreet可与其分享必要的信息。并且，UsedStreet会要求其确保数据安全并且禁止用于任何其他用途。除此之外，UsedStreet不会向任何无关第三方提供或分享信息。<br>
                 2．8　在如下情况下，UsedStreet可能会披露您的信息:<br>
                 （1）事先获得您的授权；<br>
@@ -69,7 +69,6 @@
     @import "../../assets/scss/define";
     .agreement-con{
         @extend %wm;
-        @extend %f14;
         @extend %c6;
         line-height: 1.8;
         p{
