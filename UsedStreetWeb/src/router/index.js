@@ -5,6 +5,7 @@ import Login from '../views/login/Login.vue'
 import Register from '../views/register/Register.vue'
 import Agreement from '../views/agreement/Agreement.vue'
 import User from '../views/user/User.vue'
+import Personal from '../views/user/children/Personal.vue'
 
 Vue.use(Router);
 
@@ -22,7 +23,7 @@ export default new Router({
             name: 'login',
             component: Login,
             meta: {
-                position: 'static',
+                position: 'relative',
                 is_show: false
             }
         },
@@ -32,7 +33,7 @@ export default new Router({
             name: 'register',
             component: Register,
             meta: {
-                position: 'static',
+                position: 'relative',
                 is_show: false
             }
         },
@@ -42,7 +43,7 @@ export default new Router({
             name: 'agreement',
             component: Agreement,
             meta: {
-                position: 'static',
+                position: 'relative',
                 is_show: false
             }
         },
@@ -52,9 +53,21 @@ export default new Router({
             name: 'user',
             component: User,
             meta: {
-                position: 'static',
+                position: 'relative',
                 is_show: false
-            }
+            },
+            children: [
+                /**个人中心*/
+                {
+                    path: '/',
+                    name: 'personal',
+                    component: Personal,
+                    meta: {
+                        position: 'relative',
+                        is_show: false
+                    }
+                }
+            ]
         }
     ]
 })
