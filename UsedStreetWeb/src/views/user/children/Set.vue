@@ -1,6 +1,6 @@
 <template>
     <div class="user-container">
-        设置页面
+        <h1 class="user-container-title">我的设置：</h1>
     </div>
 </template>
 <script>

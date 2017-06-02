@@ -1,6 +1,6 @@
 <template>
     <div class="user-container">
-        出售页面
+        <h1 class="user-container-title">我要出售：</h1>
     </div>
 </template>
 <script>

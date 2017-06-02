@@ -58,14 +58,10 @@ export default new Router({
             path: '/user',
             name: 'user',
             component: User,
-            meta: {
-                position: 'relative',
-                is_show: false
-            },
             children: [
                 /**中心*/
                 {
-                    path: 'personal',
+                    path: ':user_name/personal',
                     name: 'personal',
                     component: Personal,
                     meta: {
@@ -75,7 +71,7 @@ export default new Router({
                 },
                 /**资料*/
                 {
-                    path: 'data',
+                    path: ':user_name/data',
                     name: 'data',
                     component: Data,
                     meta: {
@@ -85,7 +81,7 @@ export default new Router({
                 },
                 /**出售*/
                 {
-                    path: 'sell',
+                    path: ':user_name/sell',
                     name: 'sell',
                     component: Sell,
                     meta: {
@@ -95,7 +91,7 @@ export default new Router({
                 },
                 /**收藏*/
                 {
-                    path: 'collect',
+                    path: ':user_name/collect',
                     name: 'collect',
                     component: Collect,
                     meta: {
@@ -105,7 +101,7 @@ export default new Router({
                 },
                 /**足迹*/
                 {
-                    path: 'track',
+                    path: ':user_name/track',
                     name: 'track',
                     component: Track,
                     meta: {
@@ -115,7 +111,7 @@ export default new Router({
                 },
                 /**反馈*/
                 {
-                    path: 'opinion',
+                    path: ':user_name/opinion',
                     name: 'opinion',
                     component: Opinion,
                     meta: {
@@ -125,7 +121,7 @@ export default new Router({
                 },
                 /**设置*/
                 {
-                    path: 'set',
+                    path: ':user_name/set',
                     name: 'set',
                     component: Set,
                     meta: {

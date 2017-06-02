@@ -1,6 +1,6 @@
 <template>
     <div class="user-container">
-        足迹页面
+        <h1 class="user-container-title">我的足迹：</h1>
     </div>
 </template>
 <script>

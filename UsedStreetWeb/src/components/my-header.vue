@@ -48,7 +48,7 @@
                 <img src="../assets/img/1.jpg" alt="" class="user-header">
                 <div class="user-info">
                     <span class="user-name">woshiajuana</span>
-                    <router-link class="user-info-link" to="/user/personal">
+                    <router-link class="user-info-link" to="/user/woshiajuana/personal">
                         <i>
                             <svg class="user-info-link-icon">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#person-icon"></use>
@@ -56,7 +56,7 @@
                         </i>
                         <span>主页</span>
                     </router-link>
-                    <router-link class="user-info-link" to="/user/data">
+                    <router-link class="user-info-link" to="/user/woshiajuana/data">
                         <i>
                             <svg class="user-info-link-icon" style="width: 16px;height: 16px;margin-top: 2px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#data-icon"></use>
@@ -64,7 +64,7 @@
                         </i>
                         <span>资料</span>
                     </router-link>
-                    <router-link class="user-info-link" to="/user/sell">
+                    <router-link class="user-info-link" to="/user/woshiajuana/sell">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sell-icon"></use>
@@ -72,7 +72,7 @@
                         </i>
                         <span>出售</span>
                     </router-link>
-                    <router-link class="user-info-link" to="/user/collect">
+                    <router-link class="user-info-link" to="/user/woshiajuana/collect">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#collect-icon"></use>
@@ -80,7 +80,7 @@
                         </i>
                         <span>收藏</span>
                     </router-link>
-                    <router-link class="user-info-link" to="/user/track">
+                    <router-link class="user-info-link" to="/user/woshiajuana/track">
                         <i>
                             <svg class="user-info-link-icon" style="width: 22px;height: 22px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#track-icon"></use>
@@ -88,7 +88,7 @@
                         </i>
                         <span>足迹</span>
                     </router-link>
-                    <router-link class="user-info-link" to="/user/opinion">
+                    <router-link class="user-info-link" to="/user/woshiajuana/opinion">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px;">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#opinion-icon"></use>
@@ -96,7 +96,7 @@
                         </i>
                         <span>反馈</span>
                     </router-link>
-                    <router-link class="user-info-link" to="/user/set">
+                    <router-link class="user-info-link" to="/user/woshiajuana/set">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px;">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#set-icon"></use>

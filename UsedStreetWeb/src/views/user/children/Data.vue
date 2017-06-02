@@ -1,6 +1,6 @@
 <template>
     <div class="user-container">
-        资料页面
+        <h1 class="user-container-title">我的资料：</h1>
     </div>
 </template>
 <script>

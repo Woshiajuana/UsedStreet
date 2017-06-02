@@ -1,6 +1,6 @@
 <template>
     <div class="user-container">
-        收藏页面
+        <h1 class="user-container-title">我的收藏：</h1>
     </div>
 </template>
 <script>
