@@ -6,6 +6,12 @@ import Register from '../views/register/Register.vue'
 import Agreement from '../views/agreement/Agreement.vue'
 import User from '../views/user/User.vue'
 import Personal from '../views/user/children/Personal.vue'
+import Data from '../views/user/children/Data.vue'
+import Collect from '../views/user/children/Collect.vue'
+import Opinion from '../views/user/children/Opinion.vue'
+import Sell from '../views/user/children/Sell.vue'
+import Set from '../views/user/children/Set.vue'
+import Track from '../views/user/children/Track.vue'
 
 Vue.use(Router);
 
@@ -57,11 +63,71 @@ export default new Router({
                 is_show: false
             },
             children: [
-                /**个人中心*/
+                /**中心*/
                 {
-                    path: '/',
+                    path: 'personal',
                     name: 'personal',
                     component: Personal,
+                    meta: {
+                        position: 'relative',
+                        is_show: false
+                    }
+                },
+                /**资料*/
+                {
+                    path: 'data',
+                    name: 'data',
+                    component: Data,
+                    meta: {
+                        position: 'relative',
+                        is_show: false
+                    }
+                },
+                /**出售*/
+                {
+                    path: 'sell',
+                    name: 'sell',
+                    component: Sell,
+                    meta: {
+                        position: 'relative',
+                        is_show: false
+                    }
+                },
+                /**收藏*/
+                {
+                    path: 'collect',
+                    name: 'collect',
+                    component: Collect,
+                    meta: {
+                        position: 'relative',
+                        is_show: false
+                    }
+                },
+                /**足迹*/
+                {
+                    path: 'track',
+                    name: 'track',
+                    component: Track,
+                    meta: {
+                        position: 'relative',
+                        is_show: false
+                    }
+                },
+                /**反馈*/
+                {
+                    path: 'opinion',
+                    name: 'opinion',
+                    component: Opinion,
+                    meta: {
+                        position: 'relative',
+                        is_show: false
+                    }
+                },
+                /**设置*/
+                {
+                    path: 'set',
+                    name: 'set',
+                    component: Set,
                     meta: {
                         position: 'relative',
                         is_show: false

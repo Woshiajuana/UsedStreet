@@ -48,62 +48,62 @@
                 <img src="../assets/img/1.jpg" alt="" class="user-header">
                 <div class="user-info">
                     <span class="user-name">woshiajuana</span>
-                    <a class="user-info-link" href="#/user">
+                    <router-link class="user-info-link" to="/user/personal">
                         <i>
                             <svg class="user-info-link-icon">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#person-icon"></use>
                             </svg>
                         </i>
                         <span>主页</span>
-                    </a>
-                    <a class="user-info-link" href="#/user">
+                    </router-link>
+                    <router-link class="user-info-link" to="/user/data">
                         <i>
                             <svg class="user-info-link-icon" style="width: 16px;height: 16px;margin-top: 2px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#data-icon"></use>
                             </svg>
                         </i>
                         <span>资料</span>
-                    </a>
-                    <a class="user-info-link" href="#/">
+                    </router-link>
+                    <router-link class="user-info-link" to="/user/sell">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sell-icon"></use>
                             </svg>
                         </i>
                         <span>出售</span>
-                    </a>
-                    <a class="user-info-link" href="#/">
+                    </router-link>
+                    <router-link class="user-info-link" to="/user/collect">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#collect-icon"></use>
                             </svg>
                         </i>
                         <span>收藏</span>
-                    </a>
-                    <a class="user-info-link" href="#/">
+                    </router-link>
+                    <router-link class="user-info-link" to="/user/track">
                         <i>
                             <svg class="user-info-link-icon" style="width: 22px;height: 22px">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#track-icon"></use>
                             </svg>
                         </i>
                         <span>足迹</span>
-                    </a>
-                    <a class="user-info-link" href="#/">
+                    </router-link>
+                    <router-link class="user-info-link" to="/user/opinion">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px;">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#opinion-icon"></use>
                             </svg>
                         </i>
                         <span>反馈</span>
-                    </a>
-                    <a class="user-info-link" href="#/">
+                    </router-link>
+                    <router-link class="user-info-link" to="/user/set">
                         <i>
                             <svg class="user-info-link-icon" style="width: 18px;height: 18px;">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#set-icon"></use>
                             </svg>
                         </i>
                         <span>设置</span>
-                    </a>
+                    </router-link>
                     <a class="user-info-link" href="#/">
                         <i>
                             <svg class="user-info-link-icon">
@@ -412,12 +412,17 @@
             height: 20px;
             line-height: 20px;
         }
-        &:hover{
-            background-color: #ddd;
+        &.router-link-active{
+            &:hover{
+                background-color: transparent;
+            }
             color: $mc;
             .user-info-link-icon{
                 fill: $mc;
             }
+        }
+        &:hover{
+            background-color: #ddd;
         }
     }
     .user-info-link-icon{
