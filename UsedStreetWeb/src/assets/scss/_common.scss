@@ -105,3 +105,11 @@ body{
 .slideOutUp {
     animation-name: slideOutUp;
 }
+.agreement-view,
+.user-view,
+.register-view,
+.login-view{
+    &.views-wrap{
+        padding: 0 0 80px;
+    }
+}

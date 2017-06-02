@@ -4,6 +4,7 @@ import Home from '../views/home/Home.vue'
 import Login from '../views/login/Login.vue'
 import Register from '../views/register/Register.vue'
 import Agreement from '../views/agreement/Agreement.vue'
+import User from '../views/user/User.vue'
 
 Vue.use(Router);
 
@@ -40,6 +41,16 @@ export default new Router({
             path: '/agreement',
             name: 'agreement',
             component: Agreement,
+            meta: {
+                position: 'static',
+                is_show: false
+            }
+        },
+        /**用户*/
+        {
+            path: '/user',
+            name: 'user',
+            component: User,
             meta: {
                 position: 'static',
                 is_show: false

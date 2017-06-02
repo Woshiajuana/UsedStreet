@@ -40,11 +40,11 @@
                     </svg>
                 </i>
             </div>
-            <div v-if="isShow" class="user-link-box">
+            <div v-if="isShow" class="user-link-box hiddenImportant">
                 <a href="#/login" class="login-link">登录</a>
                 <a href="#/register" class="register-link">注册</a>
             </div>
-            <div class="user-info-box hiddenImportant">
+            <div class="user-info-box">
                 <img src="../assets/img/1.jpg" alt="" class="user-header">
                 <div class="user-info">
                     <span class="user-name">woshiajuana</span>

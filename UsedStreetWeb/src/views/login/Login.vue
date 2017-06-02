@@ -75,11 +75,6 @@
 </script>
 <style lang="scss">
     @import "../../assets/scss/define";
-    .agreement-view,
-    .register-view,
-    .login-view{
-        padding: 0 0 80px;
-    }
     .login-box{
         @extend %ma;
         @extend %bsb;
