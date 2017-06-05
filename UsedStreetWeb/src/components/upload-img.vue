@@ -32,10 +32,11 @@
         @extend %pa;
         @extend %tac;
         @extend %l0;
+        @extend %dn;
         @extend %r0;
         @extend %b0;
         @extend %t0;
-        background-color: rgba(0,0,0,.5);
+        background-color: rgba(255,255,255,.5);
     }
     .upload-img-delete{
         @extend %pa;
@@ -70,6 +71,18 @@
         width: 80px;
         height: 80px;
         margin: 0 10px 10px 0;
+        &:hover{
+            .upload-img-operate{
+                @extend %db;
+            }
+            .upload-img{
+                -webkit-filter: blur(3px);
+                -moz-filter: blur(3px);
+                -ms-filter: blur(3px);
+                filter: blur(3px);
+
+            }
+        }
     }
     .upload-img{
         @extend %db;
