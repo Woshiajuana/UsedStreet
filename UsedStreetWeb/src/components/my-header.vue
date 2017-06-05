@@ -128,10 +128,10 @@
         },
         computed: {
             headerPosition () {
-                return this.$route.meta.position || 'fixed';
+                return this.$route.meta.position || 'relative';
             },
             isShow () {
-                return typeof this.$route.meta.is_show == 'undefined' ? true : false;
+                return typeof this.$route.meta.is_show == 'undefined' ? false : true;
             }
         },
         methods: {

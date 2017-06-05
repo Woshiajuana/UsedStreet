@@ -12,6 +12,7 @@ import Opinion from '../views/user/children/Opinion.vue'
 import Sell from '../views/user/children/Sell.vue'
 import Set from '../views/user/children/Set.vue'
 import Track from '../views/user/children/Track.vue'
+import Details from '../views/details/Details.vue'
 
 Vue.use(Router);
 
@@ -21,37 +22,29 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: Home
+            component: Home,
+            meta: {
+                position: 'fixed',
+                is_show: true
+            }
         },
         /**登录*/
         {
             path: '/login',
             name: 'login',
-            component: Login,
-            meta: {
-                position: 'relative',
-                is_show: false
-            }
+            component: Login
         },
         /**注册*/
         {
             path: '/register',
             name: 'register',
-            component: Register,
-            meta: {
-                position: 'relative',
-                is_show: false
-            }
+            component: Register
         },
         /**协议*/
         {
             path: '/agreement',
             name: 'agreement',
-            component: Agreement,
-            meta: {
-                position: 'relative',
-                is_show: false
-            }
+            component: Agreement
         },
         /**用户*/
         {
@@ -63,73 +56,50 @@ export default new Router({
                 {
                     path: ':user_name/personal',
                     name: 'personal',
-                    component: Personal,
-                    meta: {
-                        position: 'relative',
-                        is_show: false
-                    }
+                    component: Personal
                 },
                 /**资料*/
                 {
                     path: ':user_name/data',
                     name: 'data',
-                    component: Data,
-                    meta: {
-                        position: 'relative',
-                        is_show: false
-                    }
+                    component: Data
                 },
                 /**出售*/
                 {
                     path: ':user_name/sell',
                     name: 'sell',
-                    component: Sell,
-                    meta: {
-                        position: 'relative',
-                        is_show: false
-                    }
+                    component: Sell
                 },
                 /**收藏*/
                 {
                     path: ':user_name/collect',
                     name: 'collect',
-                    component: Collect,
-                    meta: {
-                        position: 'relative',
-                        is_show: false
-                    }
+                    component: Collect
                 },
                 /**足迹*/
                 {
                     path: ':user_name/track',
                     name: 'track',
-                    component: Track,
-                    meta: {
-                        position: 'relative',
-                        is_show: false
-                    }
+                    component: Track
                 },
                 /**反馈*/
                 {
                     path: ':user_name/opinion',
                     name: 'opinion',
-                    component: Opinion,
-                    meta: {
-                        position: 'relative',
-                        is_show: false
-                    }
+                    component: Opinion
                 },
                 /**设置*/
                 {
                     path: ':user_name/set',
                     name: 'set',
-                    component: Set,
-                    meta: {
-                        position: 'relative',
-                        is_show: false
-                    }
+                    component: Set
                 }
             ]
-        }
+        },
+        {
+            path: '/details/:goods_id',
+            name: 'details',
+            component: Details
+        },
     ]
 })
