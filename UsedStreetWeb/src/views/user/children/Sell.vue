@@ -8,6 +8,9 @@
             <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_email" :placeholder="'QQ：'"></user-input>
             <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_email" :placeholder="'微信：'"></user-input>
             <user-input :styles="'margin:10px 0'" :type="'text'" :selectArr="selectArr" :placeholder="'类别：'"></user-input>
+
+
+            <upload-img :prompt="'图片：'"></upload-img>
             <p class="data-btn-con">
                 <i class="data-btn data-sure-btn">提交</i>
             </p>
@@ -16,6 +19,7 @@
 </template>
 <script>
     import UserInput from '../../../components/user-input.vue'
+    import UploadImg from '../../../components/upload-img.vue'
     export default {
         name: 'sell',
         data () {
@@ -34,7 +38,8 @@
             }
         },
         components: {
-            UserInput
+            UserInput,
+            UploadImg
         }
     }
 </script>

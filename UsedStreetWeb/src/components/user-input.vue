@@ -57,7 +57,7 @@
                 setTimeout( () => {
                     this.is_active = false;
                     this.is_open = false;
-                },50)
+                },100)
             },
             focusFun () {
                 this.is_active = true;
@@ -130,6 +130,7 @@
             }
         }
         &.open{
+            z-index: 1;
             .select-box{
                 height: 160px;
             }
