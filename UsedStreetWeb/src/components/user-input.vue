@@ -4,10 +4,10 @@
          :class="{'active':is_active || input_value,'open': is_open}">
         <label class="input-prompt" v-text="placeholder"></label>
         <i class="input-bar"></i>
-        <input :readonly="selectArr" class="input-con" v-if="selectArr" type="text" @input="change" v-model="inputValue" @focus="focusFun" @blur="blurFun">
-        <input class="input-con" v-else-if="type == 'text'" type="text" @input="change" v-model="input_value" @focus="focusFun" @blur="blurFun">
+        <input readonly="true" class="input-con" v-if="selectArr" type="text" @input="change" v-model="inputValue" @focus="focusFun" @blur="blurFun">
+        <input :readonly="readonly" class="input-con" v-else-if="type == 'text'" type="text" @input="change" v-model="input_value" @focus="focusFun" @blur="blurFun">
         <input class="input-con" v-else type="password" v-model="input_value" @focus="is_active = true" @blur="is_active = false">
-        <i class="input-clear" @click="clearInput" v-show="input_value">
+        <i v-if="!readonly" class="input-clear" @click="clearInput" v-show="input_value">
             <svg class="clear-icon">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#clear-icon"></use>
             </svg>
@@ -20,7 +20,7 @@
 <script>
     export default {
         name: 'user-input',
-        props: [ 'type', 'placeholder', 'value', 'styles', 'selectArr'],
+        props: [ 'type', 'placeholder', 'value', 'styles', 'selectArr', 'readonly'],
         created () {
             this.input_value = this.value;
         },

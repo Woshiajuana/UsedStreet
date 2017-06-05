@@ -81,6 +81,7 @@
                         <div class="genre-con">
                             <a href="#">鞋子</a>
                             <a href="#">衣服</a>
+                            <a href="#">包包</a>
                             <a href="#">其它服饰</a>
                         </div>
                         <h3 class="genre-title">好货推荐</h3>

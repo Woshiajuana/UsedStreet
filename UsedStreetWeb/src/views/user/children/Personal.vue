@@ -9,15 +9,18 @@
             <goods-list-item></goods-list-item>
             <goods-list-item></goods-list-item>
             <goods-list-item></goods-list-item>
+            <null-data :prompt="'没啥数据哦！'" :hrefUrl="'#/'" :hrefText="'再逛逛'"></null-data>
         </div>
     </div>
 </template>
 <script>
     import GoodsListItem from '../../../components/goods-list-item.vue'
+    import NullData from '../../../components/null-data.vue'
     export default {
         name: 'personal',
         components: {
-            GoodsListItem
+            GoodsListItem,
+            NullData
         }
     }
 </script>
