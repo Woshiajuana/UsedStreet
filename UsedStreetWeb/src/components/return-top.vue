@@ -23,7 +23,7 @@
         },
         created () {
             this.$nextTick( () => {
-                window.addEventListener('scroll', this.scrollFun)
+                window.addEventListener('scroll', this.scrollFun);
             })
         },
         methods: {

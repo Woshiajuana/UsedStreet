@@ -10,12 +10,7 @@
 </template>
 <script>
     export default {
-        name: 'slogan',
-        computed: {
-            scrollTop () {
-                return this.$store.state.scroll_top;
-            }
-        }
+        name: 'slogan'
     }
 </script>
 <style lang="scss">
