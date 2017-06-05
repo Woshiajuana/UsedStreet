@@ -5,6 +5,7 @@
             <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_name" :placeholder="'昵称：'"></user-input>
             <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_email" :placeholder="'邮箱：'"></user-input>
             <user-input :styles="'margin:10px 0'" :type="'text'" v-model="user_phone" :placeholder="'手机：'"></user-input>
+            <user-select :styles="'margin:10px 0'" :type="'text'" :selectArr="selectArr" :placeholder="'请选择地点'"></user-select>
             <p class="data-btn-con">
                 <i class="data-btn data-sure-btn">提交</i>
             </p>
@@ -13,17 +14,27 @@
 </template>
 <script>
     import UserInput from '../../../components/user-input.vue'
+    import UserSelect from '../../../components/user-select.vue'
     export default {
         name: 'data',
         data () {
             return {
                 user_name: '',
                 user_email: '',
-                user_phone: ''
+                user_phone: '',
+                selectArr: [
+                    { key: '第一个选择'},
+                    { key: '第二个选择'},
+                    { key: '第三个选择'},
+                    { key: '第四个选择'},
+                    { key: '第五个选择'},
+                    { key: '第六个选择'},
+                ]
             }
         },
         components: {
-            UserInput
+            UserInput,
+            UserSelect
         }
     }
 </script>
