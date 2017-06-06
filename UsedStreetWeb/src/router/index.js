@@ -99,7 +99,11 @@ export default new Router({
         {
             path: '/details/:goods_id',
             name: 'details',
-            component: Details
+            component: Details,
+            meta: {
+                position: 'fixed',
+                is_show: true
+            }
         },
     ]
 })
