@@ -44,8 +44,8 @@
                 <a href="#/login" class="login-link">登录</a>
                 <a href="#/register" class="register-link">注册</a>
             </div>
-            <div class="user-info-box">
-                <img src="../assets/img/1.jpg" alt="" class="user-header">
+            <div v-if="isShow" class="user-info-box">
+                <a href="#/login"><img src="../assets/img/1.jpg" alt="" class="user-header"></a>
                 <div class="user-info">
                     <span class="user-name">woshiajuana</span>
                     <router-link class="user-info-link" to="/user/woshiajuana/personal">
